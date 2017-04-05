@@ -56,6 +56,7 @@ app.post('/webhook', (req, res) => {
   if (action === "openMeeting") {
     let contexts = req.body.result.contexts
     let n = params.meetingNumber
+    console.log(n)
     if (uid !== null) {
       getMeetingId(uid, n, (data, err) => {
         if (data == "error") {
