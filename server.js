@@ -322,7 +322,7 @@ app.post('/webhook', (req, res) => {
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
-      findDecisions(mid, (data, err) => {
+      findInfo(mid, (data, err) => {
         if (!data) {
           let resData = {
             speech: "No information found",
