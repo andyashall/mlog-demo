@@ -84,7 +84,6 @@ app.post('/webhook', (req, res) => {
               speech: "Meeting " + n + " could not be found. please try again.",
               displayText: "Meeting " + n + " could not be found. please try again.",
               data: {},
-              contextOut: [{name:"meetingid", lifespan:120, parameters: {meetingId: mid}}],
               source: "",
               followupEvent: {}
             }
