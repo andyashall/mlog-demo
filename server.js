@@ -40,18 +40,16 @@ app.post('/webhook', (req, res) => {
 
 // Login
   if (action === "login") {
-          let resData = {
-            speech: "Logged in as " + "demo" + ".",
-            displayText: "Logged in as " + "demo" + ".",
-            data: {},
-            contextOut: [{name:"userId", lifespan:120, parameters: {userId: uid}}],
-            source: "",
-            followupEvent: {}
-          }
-        res.send(resData)
-        return
-      })
-    return   
+      let resData = {
+        speech: "Logged in as " + "demo" + ".",
+        displayText: "Logged in as " + "demo" + ".",
+        data: {},
+        contextOut: [{name:"userId", lifespan:120, parameters: {userId: uid}}],
+        source: "",
+        followupEvent: {}
+      }
+    res.send(resData)
+    return 
   }
 
 // Open specified meeting
