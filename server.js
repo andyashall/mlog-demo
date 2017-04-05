@@ -17,6 +17,9 @@ app.use(bodyParser.json())
 
 const url = process.env.MONGO_URL
 
+// For the demo so only the demo account can be used
+const uid = "rdRSMHEETByXjLX3w"
+
 app.post('/webhook', (req, res) => {
 
   if (!req.body.result.action) {
@@ -37,25 +40,9 @@ app.post('/webhook', (req, res) => {
 
 // Login
   if (action === "login") {
-    var name = params.username.toLowerCase()
-      login(name, (data) => {
-        if (!data) {
           let resData = {
-            speech: "User " + name + " not found, please try again or create an mlog account if you haven't already.",
-            displayText: "User " + name + " not found, please try again or create an mlog account if you haven't already.",
-            data: {},
-            contextOut: [],
-            source: "",
-            followupEvent: {}
-          }
-          res.send(resData);
-          return
-        }
-        let uid = data
-        console.log(uid)
-          let resData = {
-            speech: "Logged in as " + name + ".",
-            displayText: "Logged in as " + name + ".",
+            speech: "Logged in as " + "demo" + ".",
+            displayText: "Logged in as " + "demo" + ".",
             data: {},
             contextOut: [{name:"userId", lifespan:120, parameters: {userId: uid}}],
             source: "",
