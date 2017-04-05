@@ -60,6 +60,9 @@ app.post('/webhook', (req, res) => {
     if (n == "II") {
       n = 2
     }
+    if (n == "for") {
+      n = 4
+    }
     if (uid !== null) {
       getMeetingId(uid, n, (data, err) => {
         if (data == "error") {
