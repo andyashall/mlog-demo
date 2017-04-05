@@ -56,9 +56,6 @@ app.post('/webhook', (req, res) => {
   if (action === "openMeeting") {
     let contexts = req.body.result.contexts
     let n = params.meetingNumber
-    let uid =  contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       getMeetingId(uid, n, (data, err) => {
         if (data == "error") {
@@ -106,9 +103,6 @@ app.post('/webhook', (req, res) => {
 // Read
   if (action === "readMeetings") {
     let contexts = req.body.result.contexts
-    let uid =  contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       findMeetings(uid, (data, err) => {
         if (data == "error") {
@@ -159,9 +153,6 @@ app.post('/webhook', (req, res) => {
         return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
-    let uid = contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       findActions(mid, (data, err) => {
         if (!data) {
@@ -218,9 +209,6 @@ app.post('/webhook', (req, res) => {
         return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
-    let uid = contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       findDecisions(mid, (data, err) => {
         if (!data) {
@@ -277,9 +265,6 @@ app.post('/webhook', (req, res) => {
         return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
-    let uid = contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       findRisks(mid, (data, err) => {
         if (!data) {
@@ -336,9 +321,6 @@ app.post('/webhook', (req, res) => {
         return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
-    let uid = contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       findDecisions(mid, (data, err) => {
         if (!data) {
@@ -396,9 +378,6 @@ app.post('/webhook', (req, res) => {
     var name = params.meetingName
     console.log("create a meting called " + params.meetingName)
     let contexts = req.body.result.contexts
-    let uid =  contexts.find((d) => {
-        return d.name == "userid"
-      }).parameters.userId
     if (uid !== null) {
       createMeeting(name, uid, (data, err) => {
         if (data == "error") {
@@ -445,9 +424,6 @@ app.post('/webhook', (req, res) => {
     console.log("create a action called " + params.actionName)
     let contexts = req.body.result.contexts
     if (contexts.length !== 0) {
-      let uid =  contexts.find((d) => {
-          return d.name == "userid"
-        }).parameters.userId
       let mid = contexts.find((d) => {
           return d.name == "meetingid"
         }).parameters.meetingId
@@ -484,9 +460,6 @@ app.post('/webhook', (req, res) => {
     console.log("create a decision called " + params.decisionName)
     let contexts = req.body.result.contexts
     if (contexts.length !== 0) {
-      let uid =  contexts.find((d) => {
-          return d.name == "userid"
-        }).parameters.userId
       let mid = contexts.find((d) => {
           return d.name == "meetingid"
         }).parameters.meetingId
@@ -523,9 +496,6 @@ app.post('/webhook', (req, res) => {
     console.log("create an risk called " + params.riskName)
     let contexts = req.body.result.contexts
     if (contexts.length !== 0) {
-      let uid =  contexts.find((d) => {
-          return d.name == "userid"
-        }).parameters.userId
       let mid = contexts.find((d) => {
           return d.name == "meetingid"
         }).parameters.meetingId
@@ -562,9 +532,6 @@ app.post('/webhook', (req, res) => {
     console.log("create an info called " + params.infoName)
     let contexts = req.body.result.contexts
     if (contexts.length !== 0) {
-      let uid =  contexts.find((d) => {
-          return d.name == "userid"
-        }).parameters.userId
       let mid = contexts.find((d) => {
           return d.name == "meetingid"
         }).parameters.meetingId
