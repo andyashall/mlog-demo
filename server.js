@@ -78,7 +78,7 @@ app.post('/webhook', (req, res) => {
           speech: "Meeting opened: " + mt,
           displayText: "Meeting opened: " + mt,
           data: {},
-          contextOut: [{name:"meetingId", lifespan:120, parameters: {meetingId: mid}}],
+          contextOut: [{name:"meetingid", lifespan:120, parameters: {meetingId: mid}}],
           source: "",
           followupEvent: {}
         }
@@ -150,7 +150,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readActions") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingId"
+        return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
@@ -206,7 +206,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readDecisions") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingId"
+        return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
@@ -262,7 +262,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readRisks") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingId"
+        return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
@@ -318,7 +318,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readInfo") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingId"
+        return d.name == "meetingid"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
