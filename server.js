@@ -150,7 +150,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readActions") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingid"
+        return d.name == "meetingId"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
@@ -206,7 +206,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readDecisions") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingid"
+        return d.name == "meetingId"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
@@ -262,7 +262,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readRisks") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingid"
+        return d.name == "meetingId"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
@@ -318,7 +318,7 @@ app.post('/webhook', (req, res) => {
   if (action === "readInfo") {
     let contexts = req.body.result.contexts
     let mid = contexts.find((d) => {
-        return d.name == "meetingid"
+        return d.name == "meetingId"
       }).parameters.meetingId
     console.log(mid)
     if (uid !== null) {
