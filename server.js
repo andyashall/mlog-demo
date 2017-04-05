@@ -77,6 +77,20 @@ app.post('/webhook', (req, res) => {
           res.send(resData);
           return         
         } else {
+          if (data.length == 0) {
+            console.log(data)
+            var tasks = [];    
+            let resData = {
+              speech: "Meeting " + n + " could not be found. please try again.",
+              displayText: "Meeting " + n + " could not be found. please try again.",
+              data: {},
+              contextOut: [{name:"meetingid", lifespan:120, parameters: {meetingId: mid}}],
+              source: "",
+              followupEvent: {}
+            }
+            res.send(resData)
+            return            
+          }
         let mid = data[0]._id
         let mt = data[0].title
         console.log(data)
